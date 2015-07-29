@@ -3,11 +3,11 @@
  mb_internal_encoding("UTF-8");
 /* Set output encoding to UTF-8 */
  mb_http_output("UTF-8");
-/* übernimmt werte aus create-graph-3.5-dual.html */
+/* übernimmt werte aus create-graph-3.5-dual.html?range=2 for 2 days*/
 $diff = $_GET['range'];
 /*echo (diff);
 /* berechnet aktuellen Zeitpunkt */
-$now = time()*1000;
+$now = time()*1000+2*60*60;  /*for time correction */
 /* */
   $dbc = mysqli_connect("localhost", "pi", "pi", "klima_growbox");
   $query = "SELECT timestamp,temp1,temp2,temp3,rh1,rh2,rh3,tmax,tmin,absdraussen,absdrinnen FROM daten2 WHERE timestamp >".$now - $diff."";
