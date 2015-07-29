@@ -4,13 +4,13 @@
 /* Set output encoding to UTF-8 */
  mb_http_output("UTF-8");
 /* übernimmt werte aus create-graph-3.5-dual.html */
-$_GET['range'] = diff;
+$diff = $_GET['range'];
 /*echo (diff);
 /* berechnet aktuellen Zeitpunkt */
-time()*1000 = now;
+$now = time()*1000;
 /* */
   $dbc = mysqli_connect("localhost", "pi", "pi", "klima_growbox");
-  $query = "SELECT timestamp,temp1,temp2,temp3,rh1,rh2,rh3,tmax,tmin,absdraussen,absdrinnen FROM daten2 WHERE timestamp > now - diff";
+  $query = "SELECT timestamp,temp1,temp2,temp3,rh1,rh2,rh3,tmax,tmin,absdraussen,absdrinnen FROM daten2 WHERE timestamp >".$now - $diff."";
   $data = mysqli_query($dbc, $query);
   $i=0;
   while($row = mysqli_fetch_array($data)){
